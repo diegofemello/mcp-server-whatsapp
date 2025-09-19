@@ -65,7 +65,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         content: [
           {
             type: "text",
-            text: `✅ Mensagem enviada 7777 com sucesso!\n\nDetalhes:\n- ID: ${result.messageId}\n- Para: ${result.group}\n- Status: ${result.status}\n- Enviado em: ${result.timestamp}`
+            text: `✅ Mensagem enviada com sucesso!\n\nDetalhes:\n- ID: ${result.messageId}\n- Para: ${result.group}\n- Status: ${result.status}\n- Enviado em: ${result.timestamp}`
           }
         ]
       };

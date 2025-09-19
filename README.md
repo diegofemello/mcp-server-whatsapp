@@ -81,6 +81,8 @@ Detalhes:
 - Enviado em: 2025-09-19T14:18:07.157Z
 ```
 
+![Exemplo de Uso](docs/example.png)
+
 ## Configuração Técnica
 
 ### Arquivo de Configuração MCP
