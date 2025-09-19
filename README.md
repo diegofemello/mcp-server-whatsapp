@@ -23,9 +23,13 @@ O sistema é composto por:
 projeto-diego/
 ├── index.js                 # Servidor MCP principal
 ├── package.json             # Dependências do projeto
+├── vitest.config.js         # Configuração de testes
+├── tests/
+│   └── mcp-server.test.js   # Testes unitários
 ├── docs/
 │   ├── whatsapp-mcp-diagram.drawio     # Diagrama editável
-│   └── whatsapp-mcp-diagram.drawio.png # Imagem do diagrama
+│   ├── whatsapp-mcp-diagram.drawio.png # Imagem do diagrama
+│   └── example.png          # Exemplo de uso
 └── README.md               # Este arquivo
 ```
 
@@ -155,11 +159,24 @@ echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/list"}' | node index.js
 
 ## Desenvolvimento
 
+### Executando Testes
+```bash
+# Executar todos os testes
+npm test
+
+# Executar testes em modo watch
+npm run test:watch
+
+# Executar testes com cobertura
+npm run test:coverage
+```
+
 ### Estrutura do Código
 - **Servidor MCP**: Implementado usando `@modelcontextprotocol/sdk`
 - **Comunicação**: Via stdio (entrada/saída padrão)
 - **Protocolo**: JSON-RPC 2.0
 - **Mock API**: Simula delay e resposta da API WhatsApp
+- **Testes**: Vitest para testes unitários e cobertura
 
 ### Adicionando Novas Ferramentas
 1. Registre a ferramenta em `ListToolsRequestSchema`
