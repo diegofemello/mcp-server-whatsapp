@@ -4,6 +4,8 @@ Servidor MCP (Model Context Protocol) para integração do Amazon Q CLI com What
 
 ![Diagrama do Sistema](docs/whatsapp-mcp-diagram.drawio.png)
 
+q-developer-quest-tdc-2025
+
 ## Visão Geral
 
 Este projeto implementa um servidor MCP que estende as capacidades do Amazon Q CLI, adicionando funcionalidades de envio de mensagens WhatsApp. O sistema utiliza o protocolo MCP para criar uma ponte entre o Q CLI e a API do WhatsApp (atualmente mockada para demonstração).
