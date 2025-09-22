@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "whatsapp": {
+      "command": "node",
+      "args": ["c:\\Work\\mcp-server-whatsapp\\index.js"],
+      "cwd": "c:\\Work\\mcp-server-whatsapp"
+    }
+  }
+}

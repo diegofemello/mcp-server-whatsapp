@@ -8,14 +8,14 @@ q-developer-quest-tdc-2025
 
 ## Visão Geral
 
-Este projeto implementa um servidor MCP que estende as capacidades do Amazon Q CLI, adicionando funcionalidades de envio de mensagens WhatsApp. O sistema utiliza o protocolo MCP para criar uma ponte entre o Q CLI e a API do WhatsApp (atualmente mockada para demonstração).
+Este projeto implementa um servidor MCP que estende as capacidades de assistentes de IA como GitHub Copilot, Amazon Q CLI, e outras ferramentas compatíveis com o Model Context Protocol, adicionando funcionalidades de envio de mensagens WhatsApp. O sistema utiliza o protocolo MCP para criar uma ponte entre os assistentes de IA e a API do WhatsApp (atualmente mockada para demonstração).
 
 ## Arquitetura
 
 O sistema é composto por:
 
-- **Amazon Q CLI**: Interface principal que processa comandos em linguagem natural
-- **Model Context Protocol (MCP)**: Protocolo que conecta o Q CLI aos servidores externos
+- **Assistente de IA (GitHub Copilot/Amazon Q CLI)**: Interface principal que processa comandos em linguagem natural
+- **Model Context Protocol (MCP)**: Protocolo que conecta assistentes de IA aos servidores externos
 - **WhatsApp MCP Server**: Servidor Node.js que implementa as ferramentas de WhatsApp
 - **WhatsApp API**: Interface com o WhatsApp (mockada no projeto atual)
 
@@ -38,10 +38,42 @@ projeto-diego/
 ## Pré-requisitos
 
 - Node.js (versão 14 ou superior)
-- Amazon Q CLI instalado e configurado
+- VS Code com GitHub Copilot OU Amazon Q CLI instalado e configurado
 - npm para gerenciamento de dependências
 
 ## Instalação
+
+### Para GitHub Copilot (VS Code)
+
+1. **Instalar dependências:**
+```bash
+npm install
+```
+
+2. **Configurar servidor MCP no VS Code:**
+
+Opção A - Configuração por workspace (recomendada):
+Crie ou edite `.vscode/settings.json` no seu projeto:
+
+```json
+{
+  "languageModels.mcp.servers": {
+    "whatsapp": {
+      "command": "node",
+      "args": ["./index.js"],
+      "cwd": "${workspaceFolder}",
+      "env": {}
+    }
+  }
+}
+```
+
+Opção B - Configuração global:
+Nas configurações do VS Code (`Ctrl+,`), procure por "mcp" e adicione a configuração.
+
+3. **Reiniciar o VS Code** para carregar o servidor MCP
+
+### Para Amazon Q CLI
 
 1. **Instalar dependências:**
 ```bash
@@ -50,7 +82,7 @@ npm install
 
 2. **Configurar servidor MCP no Q CLI:**
 ```bash
-q mcp add --name whatsapp --command node --args /home/participant/projeto-diego/index.js
+q mcp add --name whatsapp --command node --args /caminho/para/seu/projeto/index.js
 ```
 
 3. **Verificar configuração:**
@@ -63,15 +95,28 @@ q mcp status --name whatsapp
 
 ## Uso
 
-### Comando Básico
-No Amazon Q CLI, use linguagem natural para enviar mensagens:
+### GitHub Copilot (VS Code)
+No VS Code com GitHub Copilot, use linguagem natural no chat:
+
+```
+@copilot Envie a mensagem "Olá mundo!" para WhatsApp
+```
+
+ou
+
+```
+@copilot Use a ferramenta de WhatsApp para enviar uma mensagem
+```
+
+### Amazon Q CLI
+No Amazon Q CLI, use linguagem natural:
 
 ```
 Envie a mensagem "Olá mundo!" para WhatsApp
 ```
 
 ### Ferramenta MCP Disponível
-- **Nome**: `whatsapp___send_whatsapp_message`
+- **Nome**: `send_whatsapp_message`
 - **Descrição**: Envia mensagem para WhatsApp
 - **Parâmetros**:
   - `message` (string, obrigatório): Mensagem a ser enviada

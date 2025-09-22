@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "whatsapp": {
+      "command": "node",
+      "args": ["./index.js"],
+      "cwd": "${workspaceFolder}",
+      "env": {}
+    }
+  }
+}

@@ -60,7 +60,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   if (name === "send_whatsapp_message") {
     try {
       const result = await sendWhatsAppMessage(args.message);
-      
+
       return {
         content: [
           {
